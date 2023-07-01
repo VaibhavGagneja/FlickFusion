@@ -12,7 +12,7 @@ import change from '../Images/change.png';
 import ticket from '../Images/ticket.jpg'
 
 
-import '../Pages/adminuser.css';
+// import '../Pages/adminuser.css';
 
 
 export class CustomerDashBoard extends Component {

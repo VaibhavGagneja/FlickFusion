@@ -64,7 +64,7 @@ namespace MultiplexProject
                 if (data.Count() > 0)
                     return data;
                 else
-                    throw new Exception("No Feedback Found");
+                    throw new Exception("No Multiplex Found");
             }
             catch
             {

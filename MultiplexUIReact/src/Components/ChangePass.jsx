@@ -1,6 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
-import './changepass.css'
+// import './changepass.css'
 import { Link } from 'react-router-dom'
 export default class ChangePassword extends React.Component {
     constructor(props) {

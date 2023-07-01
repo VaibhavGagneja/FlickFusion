@@ -2,7 +2,7 @@ import React from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
 import feed from '../Images/feed.jpg';
-import './stylefeedback.css';
+// import './stylefeedback.css';
 import { Link } from "react-router-dom";
 // import '../Home/style.css';
 // import NavBar from './navbar';

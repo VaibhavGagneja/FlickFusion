@@ -25,7 +25,7 @@ namespace MultiplexProject.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSqlLocalDB;" +
+                optionsBuilder.UseSqlServer("Data Source=VAIBHAV;" +
                     "Initial Catalog=DBMultiplex;Integrated Security=True;");
             }
         }

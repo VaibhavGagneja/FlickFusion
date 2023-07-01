@@ -1,6 +1,6 @@
 import React from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import "../Components/aboutus.css"
+// import "../Components/aboutus.css"
 class AboutUs extends React.Component{
     render()
     {

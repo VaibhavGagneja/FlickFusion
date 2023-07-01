@@ -2,7 +2,7 @@ import React from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
 import ReactDOM from 'react-dom';
-import "../Components/showallmultimovie.css";
+// import "../Components/showallmultimovie.css";
 import { Link } from "react-router-dom";
 
 export default class ShowAllMultiplexOwner extends React.Component {

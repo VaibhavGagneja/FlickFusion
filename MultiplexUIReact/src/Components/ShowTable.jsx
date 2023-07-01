@@ -3,7 +3,7 @@ import Axios from 'axios';
 import ReactDOM from 'react-dom';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './styleshowcustomer.css';
+// import './styleshowcustomer.css';
 import profile from '../Images/q.png';
 import { BiUser } from "react-icons/bi";
 import { BsFillTelephoneFill } from "react-icons/bs";

@@ -6,7 +6,7 @@ import {
     RiLinkedinBoxFill,
   } from "react-icons/ri";
 import { Link,BrowserRouter as Router } from 'react-router-dom';
-  import './footer.css'
+  // import './footer.css'
 export class Footer extends Component {
   render() {
     return (

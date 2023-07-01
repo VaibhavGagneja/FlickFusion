@@ -1,156 +1,188 @@
-import React from "react";
-import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
-import ReactDOM from "react-dom";
-// import "./registerform.css";
 
-// import '../Home/style.css';
-// import './loginform.css'
+const RegisterUserTab = () => {
+    const [custname, setCustname] = useState("");
+    const [email, setEmail] = useState("");
+    const [mobileno, setMobileno] = useState("");
+    const [pass, setPass] = useState("");
+    const [utype, setUtype] = useState("");
+    const [mobilenoError, setMobilenoError] = useState(false);
+    const navigate = useNavigate();
+    const [activeLink, setActiveLink] = useState("signup");
 
-
-class RegisterUser extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            custname: "",
-            email: "",
-            mobileno: "",
-            //uname:'',
-            pass: "",
-            utype: "",
-        };
-    }
-    //var name=document.getElementsByName[0].value;
-    //var name=document.getElementById.value;
-    GetData = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
+    const handleNavClick = (link) => {
+        setActiveLink(link);
     };
-    ShowData = (event) => {
-        let AppUser = {
-            Email: "super@jwt.com",
-            Password: "abc@123",
-        };
-        var token = null;
-        Axios.post("http://localhost:5155/api/token", AppUser).then((r) => {
-            console.log(r);
-            token = r.data;
 
-            let name = this.state.custname;
-            let mail = this.state.email;
-            let mno = this.state.mobileno;
-            let pwd = this.state.pass;
-            let utype = this.state.utype;
-            // console.log(name + "," + mail + "," + mno + "," + pwd);
-            const customer = {
-                Email: mail,
-                Name: name,
-                MobileNo: parseInt(mno),
-                Password: pwd,
-                RegType: utype,
-                Tickets: [],
-                Feedbacks: [],
-            };
-            alert(`Bearer ${token}`);
-            console.log(customer);
-            Axios.post("http://localhost:5155/api/RegisterAPI/InsertUser", customer, {
-                headers: { Authorization: `Bearer  ${token}` },
-            }).then((r) => {
-                if (r) {
-                    alert("New Customer Added");
-                    // ReactDOM.render(<LoginForm/>,document.getElementById("root"));
-                }
-            });
-        });
+    const GetData = (event) => {
+        const { name, value } = event.target;
+        if (name === "custname") setCustname(value);
+        else if (name === "email") setEmail(value);
+        else if (name === "mobileno") setMobileno(value);
+        else if (name === "pass") setPass(value);
+        else if (name === "utype") setUtype(value);
+    };
+
+    const ShowData = (event) => {
         event.preventDefault();
-    };
-    componentDidMount() { }
+        // Validation checks
+        let isValid = true;
+        if (mobileno.length !== 10 || isNaN(mobileno)) {
+            setMobilenoError(true);
+            isValid = false;
+        } else {
+            setMobilenoError(false);
+        }
 
-    render() {
-        return (
-            <div className="">
-                <br></br>
-                <form className="was-validated  sign-up" onSubmit={this.ShowData}>
-                    <h2 className="h2">Add Members</h2>
-                    <br></br>
-                    <div className="form-group">
-                        <label>Name</label>
-                        <input
-                            type="text"
-                            className="form-Control"
-                            placeholder="Enter Your Name"
-                            required
-                            name="custname"
-                            onInput={this.GetData}
-                        />
-                        <div className="invalid-feedback"> Name cannot be blank.</div>
-                    </div>
-                    <br></br>
-                    <div className="form-group">
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            className="form-Control"
-                            placeholder="Enter Your Email"
-                            required
-                            name="email"
-                            onInput={this.GetData}
-                        />
-                        <div className="invalid-feedback">Email cannot be blank.</div>
-                    </div>
-                    <br></br>
-                    <div className="form-group">
-                        <label>Mobile Number</label>
-                        <input
-                            type="text"
-                            className="form-Control"
-                            placeholder="Enter Your Mobile No"
-                            required
-                            name="mobileno"
-                            onInput={this.GetData}
-                        />
+        // Submit data if valid
+        if (isValid) {
+            let AppUser = {
+                Email: "super@jwt.com",
+                Password: "abc@123",
+            };
+
+            Axios.post("http://localhost:5155/api/token", AppUser)
+                .then((r) => {
+                    console.log(r.data);
+                    const token = r.data;
+
+                    const customer = {
+                        Email: email,
+                        Name: custname,
+                        MobileNo: parseInt(mobileno),
+                        Password: pass,
+                        RegType: utype,
+                        Tickets: [],
+                        Feedbacks: [],
+                    };
+
+                    Axios.post(
+                        "http://localhost:5155/api/RegisterAPI/InsertUser",
+                        customer,
+                        {
+                            headers: { Authorization: `Bearer ${token}` },
+                        }
+                    )
+                        .then((r) => {
+                            if (r.data) {
+                                alert("New Customer Added");
+                                navigate("/signin"); // Navigate to the Sign In tab after successful registration
+                            }
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+    };
+
+    return (
+        <div className="container">
+            <ul className="nav nav-pills justify-content-center container">
+                <li className="nav-item">
+                    <Link
+                        className={`nav-link ${activeLink === "signup" ? "active" : ""}`}
+                        to="/adduser"
+                        onClick={() => handleNavClick("signup")}
+                    >
+                        Sign Up
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link
+                        className={`nav-link ${activeLink === "signin" ? "active" : ""}`}
+                        to="/login"
+                        onClick={() => handleNavClick("signin")}
+                    >
+                        Sign In
+                    </Link>
+                </li>
+            </ul>
+            <form className="was-validated form sign-up container" onSubmit={ShowData}>
+                <div className="mb-3">
+                    <input
+                        type="text"
+                        className={`form-control ${mobilenoError ? "is-invalid" : ""}`}
+                        placeholder="Enter Your Name"
+                        required
+                        name="custname"
+                        value={custname}
+                        onChange={GetData}
+                    />
+                </div>
+                <div className="mb-3">
+                    <input
+                        type="email"
+                        className={`form-control ${mobilenoError ? "is-invalid" : ""}`}
+                        placeholder="Enter Your Email"
+                        required
+                        name="email"
+                        value={email}
+                        onChange={GetData}
+                    />
+                </div>
+                <div className="mb-3">
+                    <input
+                        type="text"
+                        className={`form-control ${mobilenoError ? "is-invalid" : ""}`}
+                        placeholder="Enter Your Mobile No"
+                        required
+                        name="mobileno"
+                        value={mobileno}
+                        onChange={GetData}
+                    />
+                    {mobilenoError && (
                         <div className="invalid-feedback">
-                            {" "}
-                            Mobile Number cannot be blank.
+                            Please enter a valid mobile number.
                         </div>
-                    </div>
-                    <br></br>
-                    <div className="form-group">
-                        <label>Password</label>
-                        <input
-                            type="password"
-                            className="form-Control"
-                            placeholder="Enter Your Password"
-                            required
-                            name="pass"
-                            onInput={this.GetData}
-                        />
-                        <div className="invalid-feedback"> Password cannot be blank.</div>
-                    </div>
-                    <br></br>
-                    <div className="form-group">
-                        <label>Select UserType</label>
-                        <select name="utype" required onInput={this.GetData}>
-                            <option value="">Select</option>
-                            <option value="Customer">Customer</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Application Owner">Application Owner</option>
-                        </select>
-                        <div className="invalid-feedback">User Type cannot be blank.</div>
-                    </div>
-                    <br></br>
-                    <div>
-                        <button type="submit" className="btn btn-success btn-block">
-                            Add
-                        </button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <button type="reset" className="btn btn-danger btn-block">
-                            Reset
-                        </button>
-                    </div>
-                    <br></br>
-                </form>
-            </div>
-        );
-    }
-}
-export default RegisterUser;
+                    )}
+                </div>
+                <div className="mb-3">
+                    <input
+                        type="password"
+                        className={`form-control ${mobilenoError ? "is-invalid" : ""}`}
+                        placeholder="Enter Your Password"
+                        required
+                        name="pass"
+                        value={pass}
+                        onChange={GetData}
+                    />
+                </div>
+                <div className="mb-3">
+                    <select
+                        name="utype"
+                        required
+                        value={utype}
+                        onChange={GetData}
+                        className={`form-select form-control ${mobilenoError ? "is-invalid" : ""}`}
+                    >
+                        <option value="">Select User Type</option>
+                        <option value="Customer">Customer</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Application Owner">Application Owner</option>
+                    </select>
+                </div>
+                <div className="row justify-content-center">
+                    <button type="submit" id="submit" className="submit btn btn-primary col-3 px-2">
+                        Register
+                    </button>
+                    <button type="reset" id="reset" className="reset btn btn-secondary col-3 px-2">
+                        Reset
+                    </button>
+                </div>
+                <div className="text-center">
+                    Already have an account?{" "}
+                    <Link to="/login">Sign In</Link>
+                </div>
+
+            </form>
+        </div>
+    );
+};
+
+export default RegisterUserTab;

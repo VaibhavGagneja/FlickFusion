@@ -1,7 +1,7 @@
 import React from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
-import './addmoviescreen.css';
+// import './addmoviescreen.css';
 import movie4 from '../Images/movie4.png';
 import { Link } from "react-router-dom";
 // import '../Home/style.css';

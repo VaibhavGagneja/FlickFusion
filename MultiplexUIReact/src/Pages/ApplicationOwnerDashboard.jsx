@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
-import '../Pages/owner.css';
+// import '../Pages/owner.css';
 
 export class ApplicationOwnerDashboard extends Component {
     render() {

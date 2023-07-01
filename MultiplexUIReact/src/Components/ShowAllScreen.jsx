@@ -1,7 +1,7 @@
 import React from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
-import './styleshowscreen.css';
+// import './styleshowscreen.css';
 import { Link } from "react-router-dom";
 
 export default class ShowAllScreen extends React.Component {

@@ -13,15 +13,17 @@ import { FaHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaStarHalf } from "react-icons/fa";
 import LoginFormUser from "../Components/LoginFormUser";
+import RegisterUser2 from "../Components/RegisterUser2";
+
 class HomeDashboard extends React.Component {
   render() {
     return (
       <div className="Container-fluid" id="box">
         <div className="row my-1">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid" id="row1">
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container-fluid" id="row1">
               <h3 id="s3">
-                <img src={head} width={75} height={75} /> &nbsp; BOOK MY MOVIE
+                <img src={head} width={75} height={75} alt="Logo" /> &nbsp; BOOK MY MOVIE
               </h3>
               <ul className="navbar-nav mr-auto " id="nav">
                 <li className="nav-item">
@@ -45,26 +47,15 @@ class HomeDashboard extends React.Component {
                   </a>
                 </li>
                 <button className="btn btn-secondary" type="" id="b1">
-                {/* <Router> */}
-
-                <Link to="/adduser">Register</Link> 
-                {/* </Router> */}
-
+                  <Link to="/adduser">Register</Link>
                 </button>
                 <div> </div>
                 <button className="btn btn-secondary" type="" id="b1">
-                  {/* <Router> */}
-
                   <Link to="/Login">Login</Link>
-                  {/* </Router> */}
                 </button>
               </ul>
             </div>
           </nav>
-          {/*I<div className="col-md-12">
-                        <div><img src={head} width={100} height={100} />
-            <h3>BOOK MY MOVIE <span className="s3"><h6 className="">About Us  |Terms and Condition |Registration | Login &nbsp;</h6></span></h3></div></div>
-        */}
         </div>
         <div className="row my-1" id="rownew">
           <div className="col-md-12" id="new">
@@ -89,14 +80,12 @@ class HomeDashboard extends React.Component {
               <div className="card-body">
                 <h5 className="card-title">KGF: Chapter 2</h5>
                 <a
-                  // href="./Registration.html"
                   className="btn btn-warning"
                   id="b4"
                 >
                   IMDb - 8.9
                 </a>
                 <a
-                  // href="./Registration.html"
                   className="btn btn-warning"
                   id="b4"
                 >
@@ -107,7 +96,6 @@ class HomeDashboard extends React.Component {
                   <FaStarHalf />
                 </a>
                 <a
-                  // href="./Registration.html"
                   className="btn btn-warning"
                   id="b4"
                 >
@@ -132,14 +120,12 @@ class HomeDashboard extends React.Component {
               <div className="card-body">
                 <h5 className="card-title">JERSEY</h5>
                 <a
-                  // href="./Registration.html"
                   className="btn btn-warning"
                   id="b4"
                 >
                   IMDb - 7
                 </a>
                 <a
-                  // href="./Registration.html"
                   className="btn btn-warning"
                   id="b4"
                 >
@@ -149,7 +135,6 @@ class HomeDashboard extends React.Component {
                   <FaStarHalf />
                 </a>
                 <a
-                  // href="./Registration.html"
                   className="btn btn-warning"
                   id="b4"
                 >
@@ -174,14 +159,12 @@ class HomeDashboard extends React.Component {
               <div className="card-body">
                 <h5 className="card-title">RUNWAY 34</h5>
                 <a
-                  // href="./Registration.html"
                   className="btn btn-warning"
                   id="b4"
                 >
                   IMDb - 8
                 </a>
                 <a
-                  // href="./Registration.html"
                   className="btn btn-warning"
                   id="b4"
                 >
@@ -191,7 +174,6 @@ class HomeDashboard extends React.Component {
                   <FaStar />
                 </a>
                 <a
-                  // href="./Registration.html"
                   className="btn btn-warning"
                   id="b4"
                 >
@@ -219,14 +201,12 @@ class HomeDashboard extends React.Component {
                 <div className="card-body">
                   <h5 className="card-title">RRR</h5>
                   <a
-                    // href="./Registration.html"
                     className="btn btn-warning"
                     id="b4"
                   >
                     IMDb - 8.4
                   </a>
                   <a
-                    // href="./Registration.html"
                     className="btn btn-warning"
                     id="b4"
                   >
@@ -236,7 +216,6 @@ class HomeDashboard extends React.Component {
                     <FaStar />
                   </a>
                   <a
-                    // href="./Registration.html"
                     className="btn btn-warning"
                     id="b4"
                   >
@@ -261,14 +240,12 @@ class HomeDashboard extends React.Component {
                 <div className="card-body">
                   <h5 className="card-title">Multiverse of Madness</h5>
                   <a
-                    // href="./Registration.html"
                     className="btn btn-warning"
                     id="b4"
                   >
                     IMDb - 7.7
                   </a>
                   <a
-                    //href="./Registration.html"
                     className="btn btn-warning"
                     id="b4"
                   >
@@ -278,7 +255,6 @@ class HomeDashboard extends React.Component {
                     <FaStarHalf />
                   </a>
                   <a
-                    // href="./Registration.html"
                     className="btn btn-warning"
                     id="b4"
                   >
@@ -303,14 +279,12 @@ class HomeDashboard extends React.Component {
                 <div className="card-body">
                   <h5 className="card-title">HEROPANTI 2</h5>
                   <a
-                    // href="./Registration.html"
                     className="btn btn-warning"
                     id="b4"
                   >
                     IMDb - 5.4
                   </a>
                   <a
-                    // href="./Registration.html"
                     className="btn btn-warning"
                     id="b4"
                   >
@@ -319,7 +293,6 @@ class HomeDashboard extends React.Component {
                     <FaStarHalf />
                   </a>
                   <a
-                    // href="./Registration.html"
                     className="btn btn-warning"
                     id="b4"
                   >
@@ -332,7 +305,7 @@ class HomeDashboard extends React.Component {
           <div className="row my-1" id="row4">
             <div className="col-md-12" id="row4">
               <p>
-                Copyright &copy; BOOK MY MOVIE{" "}
+                &copy; BOOK MY MOVIE{" "}
                 <span className="s1">
                   <p>
                     {" "}
@@ -343,10 +316,6 @@ class HomeDashboard extends React.Component {
               </p>
             </div>
           </div>
-          {/*} <div className="footer" id="row1">
-                     <h5 id="s3">24*7 Support FAQS  &nbsp; &nbsp;   &nbsp;&nbsp;   NEED HELP </h5>
-                     </div>
-    </div>*/}
         </div>
       </div>
     );

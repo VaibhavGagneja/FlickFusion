@@ -21,7 +21,7 @@ import SRS1 from "../Images/SRS1.jpg";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./homedashboard.css";
+// import "./homedashboard.css";
 import LoginFormUser from "../Components/LoginFormUser";
 
 export default class Responsive extends Component {

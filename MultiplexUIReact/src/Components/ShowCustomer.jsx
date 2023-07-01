@@ -3,7 +3,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
 import ReactDOM from 'react-dom';
 import ShowTable from "./ShowTable";
-import './showcustomer.css'
+// import './showcustomer.css'
 export default class ShowCustomer extends React.Component {
     constructor(props) {
         super(props);

@@ -2,7 +2,7 @@ import React from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
 // import '../Home/style.css';
-import './stylemultiplex.css';
+// import './stylemultiplex.css';
 import multi from '../Images/multiplex.jpg';
 import { Link } from "react-router-dom";
 class AddMultiplex extends React.Component {

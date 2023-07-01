@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
 import ReactDOM from 'react-dom';
-import './showcustomer.css'
+// import './showcustomer.css'
 
 import ShowTableTicket from "./ShowTableTicket ";
 import { Link } from "react-router-dom";

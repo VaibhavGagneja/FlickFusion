@@ -1,7 +1,7 @@
 import React from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
-import './addmoviescreen.css';
+// import './addmoviescreen.css';
 import { BiMoviePlay } from "react-icons/bi";
 import { GiDuration } from "react-icons/gi";
 import { IoLanguageOutline } from "react-icons/io5";

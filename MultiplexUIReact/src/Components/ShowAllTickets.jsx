@@ -1,7 +1,7 @@
 import React from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
-import './styleshowticket.css';
+// import './styleshowticket.css';
 import { Link } from "react-router-dom";
 export default class ShowAllTickets extends React.Component {
     constructor(props) {
