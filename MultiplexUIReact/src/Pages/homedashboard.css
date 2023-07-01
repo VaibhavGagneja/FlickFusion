@@ -1,0 +1,182 @@
+#s3{
+    /* color:blanchedalmond; */
+    color:floralwhite
+}
+#row1{
+    background-color:rgb(54, 53, 53)
+}
+#box{
+    background-color:#eed4d7
+   /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(97,186,255,1) 0%, rgba(166,239,253,1) 90.1% );}
+#card1{ */
+    /* border: 1px solid rgb(54, 53, 53);
+    border-radius: 6px; */
+}
+#card1:hover{
+    /* border: 3px solid rgb(54, 53, 53); */
+    box-shadow: 1px 2px 3px 0;
+}
+.card-body{
+    background-color:rgb(241, 172, 172);
+    text-align: center;
+}
+.card-title{
+    /* background-color:rgb(54, 53, 53);
+    color: blanchedalmond; */
+    background-color: rgb(32, 32, 32);
+    color: rgb(241, 228, 228);
+    text-align: center;
+    border-radius: 3px solid;
+}
+.s1{
+    float :right;
+}
+#row4{
+    background-color:rgb(54, 53, 53);
+    color:blanchedalmond;
+}
+#b1{
+    margin-right: 2px ;
+    background-color:rgb(54, 53, 53);
+    color: blanchedalmond;
+}
+.b3{
+    background-color: red;
+}
+#b4{
+    margin-right: 1px ;
+    background-color: rgb(32, 32, 32);
+    color: rgb(241, 228, 228);
+}
+#m1,#m4{
+    margin-left: 70px;
+}
+#m5{
+    margin-left: 75px;
+}
+#m6{
+    margin-left: 78px;
+}
+#new{
+   text-align: center;
+    color:rgb(54, 53, 53);
+    margin-top: 20px;
+}
+/*#card1{
+    transform:translate(-50%,-50%);
+    box-shadow: 0 10px 20 px black
+}
+.overlays{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity:0;
+    transition:opacity 0.4s ease-in;
+    background: black;
+    cursor: pointer;
+}
+.content{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    text-align: center;
+}
+#card1:hover.overlays{
+    opacity: 0.8s;
+}*/
+#cc2{
+   background-color:  rgb(216, 149, 149);
+   margin-top: 10px ;
+   max-width: 850px;
+   width:100%;
+   /* height: 100%; */
+   
+   padding: 40px 30px;
+   box-shadow: 0 19px 38px rgba(48, 11, 11, 0), 0 15px 12px rgba(0, 0, 0, 0.22);
+   color: black;
+   outline: none;
+   border-radius: 1.5em;
+}
+#f1{
+    background-color:rgb(54, 53, 53);
+    color:floralwhite
+}
+#ff2{
+    margin-left: 90px;
+}
+.social-media {
+    width: 100%;
+    text-align: center;
+    /* margin-top: 20px; */
+  }
+  .social-media ul {
+    list-style: none;
+  }
+  .social-media ul li {
+    display: inline-block;
+    cursor: pointer;
+    margin: 25px 15px;
+  }
+  #hdr2{
+      background: rgb(216, 149, 149);
+  }
+  .container-body1{
+    background-color:#eed4d7
+  }
+  #tablemultiplex{
+    background-color:#eed4d7;
+    border: black;
+  }
+  #multiplex{
+      background-color: rgb(216, 149, 149);
+      /* background-color: white; */
+      margin-bottom: 20px
+    ;
+  }
+ 
+  .container-fluid1{
+      
+      display: flex;
+      background-color:#eed4d7;
+  }
+  .slick-slide{
+    margin:0 10px;
+   
+}
+/* .slick-list{
+    margin:0 -10px;
+} */
+/* .card-img-top{
+    border-radius: 4px;
+   
+} */
+#homeh2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+section{padding:5% 0}
+.alizarin{background:#e74c3c}
+.amethyst{background:#9b59b6}
+.emerald{background:#2ecc71}
+.midnight-blue{background:#2c3e50}
+.peter-river{background:#3498db}
+.dl{background:#f0f0f0;padding:30px 0;border-radius:20px;position:relative}
+.dl:before{content:" ";height:20px;width:20px;background:#ddd;border-radius:20px;position:absolute;left:50%;top:20px;margin-left:-10px}
+.dl .brand{text-transform:uppercase;letter-spacing:3px;padding:10px 15px;margin-top:10px;text-align:center;min-height:100px}
+.dl .discount{min-height:50px;position:relative;font-size:80px;line-height:80px;text-align:center;font-weight:700;padding:20px 15px 0;color:#f1c40f}
+.dl .discount:after{content:" ";border-right:20px solid transparent;border-left:20px solid transparent;position:absolute;bottom:-20px;left:20%}
+.dl .discount.alizarin:after{border-top:20px solid #e74c3c}
+.dl .discount.peter-river:after{border-top:20px solid #3498db}
+.dl .discount.emerald:after{border-top:20px solid #2ecc71}
+.dl .discount.amethyst:after{border-top:20px solid #9b59b6}
+.dl .discount .type{font-size:20px;letter-spacing:1px;text-transform:uppercase;margin-top:-30px}
+.dl .descr{color:#999;margin-top:10px;padding:20px 15px}
+.dl .ends{padding:0 15px;color:#f1c40f;margin-bottom:10px}
+.dl .coupon{min-height:50px;text-align:center;text-transform:uppercase;font-weight:700;font-size:18px;padding:20px 15px}
+.dl .coupon a.open-code{color:#16a085}
+.dl .coupon .code{letter-spacing:1px;border-radius:4px;margin-top:10px;padding:10px 15px;color:#f1c40f;background:#f0f0f0}

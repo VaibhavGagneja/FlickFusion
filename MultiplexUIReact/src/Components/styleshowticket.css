@@ -1,0 +1,19 @@
+.cant48{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-linear-gradient(left, #E35467, #9B3C48,#585858);
+}
+.container48{
+    margin-top: 10px ;
+    max-width: 850px;
+    height: 500px;
+    width:100%;
+    background:#EED4D7;
+    padding: 40px 30px;
+    box-shadow: 0 19px 38px rgba(48, 11, 11, 0), 0 15px 12px rgba(0, 0, 0, 0.22);
+   
+    outline: none;
+    border-radius: 1.5em;
+}

@@ -1,0 +1,14 @@
+#owner{
+    background-color: rgb(230, 172, 172);
+}
+#ownercard{
+    background-color: #eed4d7;
+}
+#ownercard:hover{
+    border-radius: 4px;
+    box-shadow: black 1px 3px 5px 0;
+}
+#ownercard{
+    border-radius: 1px;
+    /* border : 1px solid black; */
+}

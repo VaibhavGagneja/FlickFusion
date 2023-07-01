@@ -1,0 +1,73 @@
+#aucards1{
+    background-color:rgb(138, 226, 189);
+}
+#aucards2{
+    background-color:rgb(230, 172, 172);
+}
+#aucards3{
+    background-color:rgb(138, 166, 226);
+}
+#aucards5{
+    background-color:rgb(226, 178, 138);
+}
+#aucards6{
+    background-color:rgb(159, 226, 138);
+}
+#aucards4{
+    background-color:rgb(186, 149, 207);
+}
+#adminuser{
+    
+    /* background-color:#d4d4ee; */
+    background-color: #eed4d7;
+}
+#ah2{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.card-w-30:hover{
+    border-radius: 4px;
+    box-shadow: black 1px 3px 5px 0;
+}
+.card-w-30{
+    border-radius: 3px;
+    border : 1px solid black;
+}
+#row-3{
+   
+    padding-top: 2px;
+    padding-bottom: 15px;
+}
+#row11{ background-color:rgb(230, 172, 172);
+    padding-bottom: 15px;}
+.cardrow2{
+    margin-left: 82px;
+    border-radius: 3px;
+    border : 1px solid black;
+}
+.cardrow23{
+    margin-left: 30px;
+    border-radius: 3px;
+    border : 1px solid black;
+}
+#aucardsa{
+    background-color: #eed4d7;;
+}
+.cardrow2:hover
+{border-radius: 4px;
+    box-shadow: black 1px 3px 5px 0;}
+    .cardrow23:hover
+{border-radius: 4px;
+    box-shadow: black 1px 3px 5px 0;}
+ #cardr4{border-radius: 4px;
+        box-shadow: black 1px 3px 5px 0;}
+
+   #cardr4:hover{border-radius: 4px;
+    box-shadow: black 1px 3px 5px 0;
+
+   }
+   #row44{
+       margin-bottom: 10px;
+       padding-bottom: 10px;
+   }
