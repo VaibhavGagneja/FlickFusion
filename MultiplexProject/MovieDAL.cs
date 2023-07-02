@@ -17,7 +17,7 @@ namespace MultiplexProject
         {
             try
             {
-               // m.MovieImage = ConvertImageToBase64(m.MovieImage); 
+               m.MovieImage = ConvertImageToBase64(m.MovieImage); 
                 db.Movie.Add(m);
                 var res = db.SaveChanges();
                 if (res > 0)
@@ -102,7 +102,7 @@ namespace MultiplexProject
             }
             return false;
         }
-       /* public string ConvertImageToBase64(string filename)
+        public string ConvertImageToBase64(string filename)
         {
             byte[] imageArray = System.IO.File.ReadAllBytes(@filename);
             string base64ImageRepresentation = Convert.ToBase64String(imageArray);
@@ -116,6 +116,6 @@ namespace MultiplexProject
             var trunc = imageData.Split(',')[1];
             var padded = trunc.PadRight(trunc.Length + (4 - trunc.Length % 4) % 4, '=');
             return Convert.FromBase64String(padded);
-        }*/
+        }
     }
 }

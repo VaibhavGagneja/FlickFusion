@@ -3,8 +3,9 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
 import ReactDOM from 'react-dom';
 
-import BookTicket from "./BookTicket";
+import BookTicketBack from "./BookTicket";
 import { Link } from "react-router-dom";
+import BookTicket from "./BookTicket";
 export default class ShowMovieByMultiplex extends React.Component {
     constructor(props) {
         super(props);
@@ -42,7 +43,7 @@ export default class ShowMovieByMultiplex extends React.Component {
         //     alert("Data Deleted");
         //    }
         if (mid !== '' && sid !== '') {
-            ReactDOM.render(<BookTicket />, document.getElementById('root'));
+            ReactDOM.render(<BookTicketBack />, document.getElementById('root'));
 
         }
         // });
