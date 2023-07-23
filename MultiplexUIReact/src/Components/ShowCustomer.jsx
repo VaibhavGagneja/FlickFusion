@@ -21,15 +21,17 @@ export default class ShowCustomer extends React.Component {
         event.preventDefault();
         let mno = parseInt(this.state.mobileNo);
         console.log(mno);
-        Axios.get("http://localhost:5155/api/RegsiterAPI/GetUserByMobNo/" + mno).then(
+        Axios.get("http://localhost:5155/api/RegsiterAPI/GetUserByMobNo/" + mno, {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(
             r => {
                 if (r) {
                     this.Register = r;
                     console.log(this.Register.data);
-                    sessionStorage.setItem("name", this.Register.data.name);
-                    sessionStorage.setItem("email", this.Register.data.email);
-                    sessionStorage.setItem("mno", this.Register.data.mobileNo);
-                    sessionStorage.setItem("regtype", this.Register.data.regType);
+                    localStorage.setItem("name", this.Register.data.name);
+                    localStorage.setItem("email", this.Register.data.email);
+                    localStorage.setItem("mno", this.Register.data.mobileNo);
+                    localStorage.setItem("regtype", this.Register.data.regType);
                     ReactDOM.render(<ShowTable />, document.getElementById('root'));
                 }
                 else

@@ -46,9 +46,9 @@ const LoginFormUser = () => {
         console.log(response.data);
         if (data !== "") {
           setReg(data.substring(10));
-          sessionStorage.setItem("MobileNumber", mobileNumberAsInt);
           localStorage.setItem("MobileNumber", mobileNumberAsInt);
-          sessionStorage.setItem("RegType", data.substring(10));
+          localStorage.setItem("MobileNumber", mobileNumberAsInt);
+          localStorage.setItem("RegType", data.substring(10));
           localStorage.setItem("RegType", data.substring(10));
           setRedirect(true);
         } else {

@@ -16,7 +16,9 @@ export default class ShowAllMultiplexOwner extends React.Component {
     }
     componentDidMount() //when the component is mounted this code will execute
     {
-        Axios.get("http://localhost:5155/api/MultiplexAPI/ShowAllMultiplex").then(r => {
+        Axios.get("http://localhost:5155/api/MultiplexAPI/ShowAllMultiplex", {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(r => {
             //console.log(r.data);
 
             this.setState({ Multiplex: r.data });
@@ -37,7 +39,9 @@ export default class ShowAllMultiplexOwner extends React.Component {
             }
         }
         alert("MultiplexId:" + mid);
-        Axios.delete("http://localhost:5155/api/MultiplexAPI/DeleteMultiplex/" + mid).then(r => {
+        Axios.delete("http://localhost:5155/api/MultiplexAPI/DeleteMultiplex/" + mid, {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(r => {
             console.log(r);
 
             if (r) {

@@ -10,7 +10,7 @@ class AddMultiplex extends React.Component {
         super(props);
         this.state = {
             mname: '',
-            mno: parseInt(sessionStorage.getItem("MobileNumber"))
+            mno: parseInt(localStorage.getItem("MobileNumber"))
         }
     }
     GetData = (event) => {
@@ -27,7 +27,9 @@ class AddMultiplex extends React.Component {
             seatMatrices:[]
         };
         console.log(multiplex);
-        Axios.post("http://localhost:5155/api/MultiplexAPI/AddMultiplex", multiplex).then(
+        Axios.post("http://localhost:5155/api/MultiplexAPI/AddMultiplex", multiplex, {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(
             r => {
                 console.log(r)
                 if (r) {

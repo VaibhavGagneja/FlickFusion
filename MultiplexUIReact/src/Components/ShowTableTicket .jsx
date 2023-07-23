@@ -8,18 +8,18 @@ export default class ShowTableTicket extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      TicketId: sessionStorage.getItem('TicketId'),
-      CreatedAt: sessionStorage.getItem("CreatedAt"),
-      // name:sessionStorage.getItem('name'),
-      //MovieName:sessionStorage.getItem('MovieName'),
-      TicketType: sessionStorage.getItem('TicketType'),
-      Quantity: sessionStorage.getItem('Quantity'),
-      ScreenId: sessionStorage.getItem('ScreenId'),
-      MovieId: sessionStorage.getItem('MovieId'),
-      // MovieDuration:sessionStorage.getItem('MovieDuration'),
-      // Price:sessionStorage.getItem('Price'),
-      mno: sessionStorage.getItem('mno'),
-      //  mno:sessionStorage.getItem('mno')
+      TicketId: localStorage.getItem('TicketId'),
+      CreatedAt: localStorage.getItem("CreatedAt"),
+      // name:localStorage.getItem('name'),
+      //MovieName:localStorage.getItem('MovieName'),
+      TicketType: localStorage.getItem('TicketType'),
+      Quantity: localStorage.getItem('Quantity'),
+      ScreenId: localStorage.getItem('ScreenId'),
+      MovieId: localStorage.getItem('MovieId'),
+      // MovieDuration:localStorage.getItem('MovieDuration'),
+      // Price:localStorage.getItem('Price'),
+      mno: localStorage.getItem('mno'),
+      //  mno:localStorage.getItem('mno')
     }
     console.log(this.state.CreatedAt + "," + this.state.TicketId + "," + this.state.TicketType + "," +
       this.state.Quantity + "," + this.state.ScreenId + "," + this.state.MovieId + "," + this.state.mno

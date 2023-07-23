@@ -22,10 +22,12 @@ export default class ForgotPassword extends React.Component {
     let mobilenumber = this.state.MobileNumber;
     alert(`${mobilenumber}`);
 
-    sessionStorage.getItem("MobileNumber");
+    localStorage.getItem("MobileNumber");
 
     Axios.put(
-      "http://localhost:5155/api/RegisterAPI/ForgotPassword/" + mobilenumber
+      "http://localhost:5155/api/RegisterAPI/ForgotPassword/" + mobilenumber, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+    }
     )
       .then((r) => {
         console.log(r.data);

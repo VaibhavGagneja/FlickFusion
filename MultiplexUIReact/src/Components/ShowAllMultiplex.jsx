@@ -1,102 +1,76 @@
-import React from "react";
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, } from "react-router-dom";
 import Axios from 'axios';
-import ReactDOM from 'react-dom';
-// import "../Components/showallmultimovie.css";
-import ShowMovieByMultiplex from "./ShowMovieByMultiplex";
-import { Link, Router } from "react-router-dom";
-export default class ShowAllMultiplex extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            Multiplex: [],
+const ShowAllMultiplex = () => {
+    const [multiplex, setMultiplex] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
-        };
-    }
-    componentDidMount() //when the component is mounted this code will execute
-    {
-        Axios.get("http://localhost:5155/api/MultiplexAPI/ShowAllMultiplex").then(r => {
-            //console.log(r.data);
+    useEffect(() => {
+        // Check if user is logged in
+        const token = localStorage.getItem("jwtToken");
+        if (token) {
+            setIsLoggedIn(true);
+        }
 
-            this.setState({ Multiplex: r.data });
+        Axios.get("http://localhost:5155/api/MultiplexAPI/ShowAllMultiplex", {
+            headers: { Authorization: `Bearer ${token}` },
         })
-    }
-    Show = (e) => {
+            .then((response) => {
+                setMultiplex(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
-        alert('Clicked on this row');
-        var rb = document.getElementsByName("rbSelect");
-        var table = document.getElementById("tablemultiplex");
-        let mid = 0;
-        for (var i = 0; i < rb.length; i++) {
-            if (rb[i].checked) {
+    const handleSelectMultiplex = (multiplexId) => {
+        localStorage.setItem("MultiplexId", multiplexId);
+    };
 
-                mid = table.rows[i + 1].cells.item(0).innerHTML;
-                sessionStorage.setItem("MultiplexId", mid);
-            }
-        }
-        alert("MultiplexId:" + mid);
-        //    Axios.delete("http://localhost:5155/api/MultiplexAPI/DeleteMultiplex/"+mid).then(r=>{
-        //        console.log(r);
-
-        // if(r)
-        // {
-        //     alert("Data Deleted");
-
-
-
-        //    }
-        // });
-
-        if (mid != '') {
-
-            ReactDOM.render( <ShowMovieByMultiplex />, document.getElementById('root'));
-        }
+    if (!isLoggedIn) {
+        // Redirect to the login page if not logged in
+        return navigate("/login");
     }
 
-    render() {
-        return (
-            <div className="container-body" id="showallmm">
-                <div className="container" id="showmm">
-                    <h1>Multiplex </h1>
-                    <table className="table tabble-striped " id="tablemultiplex">
-                        <thead>
-                            <tr>
-
-                                <th>S.NO</th>
-                                <th>Multiplex Name</th>
-                                <th>Click to Select</th>
-                                {/*  <th>MovieType</th> */}
-
-
+    return (
+        <div className="container-body" id="showallmm">
+            <div className="container" id="showmm">
+                <h1>Multiplex </h1>
+                <table className="table tabble-striped" id="tablemultiplex">
+                    <thead>
+                        <tr>
+                            <th>S.NO</th>
+                            <th>Multiplex Name</th>
+                            <th>Click to Select</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {multiplex.map((x) => (
+                            <tr className="text-black" key={x.multiplexId}>
+                                <td id="mid">{x.multiplexId}</td>
+                                <td>{x.multiplexName}</td>
+                                <td>
+                                    <input
+                                        type="radio"
+                                        style={{ padding: 0, appearance: "radio" }}
+                                        name="rbSelect"
+                                        value="Select"
+                                        onChange={() => handleSelectMultiplex(x.multiplexId)}
+                                    />
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.Multiplex.map(x =>
-                                <tr className="text-black">
-
-
-                                    <td id="mid">{x.multiplexId}</td>
-                                    <td>{x.multiplexName}</td>
-
-
-                                    <td><input type="radio" style={{ padding: 0, appearance: 'radio' }} name="rbSelect" value="Select" onChange={this.Show} /></td>
-                                    {/* <td>{x.movieType}</td> */}
-
-
-
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
-                    <Link to="/CustomerDashBoard">
-                        <button id="" className='btn btn-dark' >Dashboard</button>
-                    </Link>
-                    <hr>
-                    </hr>
-
-                </div>
+                        ))}
+                    </tbody>
+                </table>
+                <Link to="/CustomerDashBoard">
+                    <button className="btn btn-dark">Dashboard</button>
+                </Link>
+                <hr />
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
+
+export default ShowAllMultiplex;

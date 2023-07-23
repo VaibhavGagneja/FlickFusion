@@ -30,17 +30,19 @@ import AdminDashBoard from './Pages/AdminDashBoard';
 import ApplicationOwnerDashboard from './Pages/ApplicationOwnerDashboard';
 import AboutUs from './Pages/AboutUs';
 import RegisterUserTab from './Components/RegisterUser';
+import LoginLogout from './Components/LoginLogout';
+import NavBarConditional from './Components/NavBarConditional';
 
 function App() {
   return (
     <div>
       <Router>
-        <NavBar />
+        <NavBarConditional />
         <Routes>
           <Route path="/" element={<Responsive />} />
           <Route path="/changepass" element={<ChangePassword />} />
           <Route path="/adduser" element={<RegisterUserTab />} />
-          <Route path="/login" element={<LoginFormUser />} />
+          <Route path="/login" element={<LoginLogout />} />
           <Route path="/addmovie" element={<AddMovie />} />
           <Route path="/forgotpass" element={<ForgotPassword />} />
           <Route path="/addfeedback" element={<AddFeedback />} />

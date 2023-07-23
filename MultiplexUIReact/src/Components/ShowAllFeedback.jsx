@@ -15,7 +15,9 @@ export default class ShowAllFeedback extends React.Component {
     }
     componentDidMount() //when the component is mounted this code will execute
     {
-        Axios.get("http://localhost:5155/api/FeedbackAPI/ShowAllFeebacks").then(r => {
+        Axios.get("http://localhost:5155/api/FeedbackAPI/ShowAllFeebacks", {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(r => {
             // http://localhost:5155/api/FeedbackAPI/ShowAllFeebacks
             //console.log(r.data);
 

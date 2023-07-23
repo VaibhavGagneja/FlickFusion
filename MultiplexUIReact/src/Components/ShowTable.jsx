@@ -15,11 +15,11 @@ export default class ShowTable extends React.Component {
     this.state = {
       mobileNo: localStorage.getItem("MobileNumber"),
 
-      // mno: sessionStorage.getItem("mno"),
-      name: sessionStorage.getItem('name'),
-      email: sessionStorage.getItem('email'),
-      regtype: sessionStorage.getItem('regtype'),
-      //  mno:sessionStorage.getItem('mno')
+      // mno: localStorage.getItem("mno"),
+      name: localStorage.getItem('name'),
+      email: localStorage.getItem('email'),
+      regtype: localStorage.getItem('regtype'),
+      //  mno:localStorage.getItem('mno')
     }
     console.log(this.state.mno + "," + this.state.name + "," + this.state.email + "," + this.state.regtype);
   }
@@ -27,15 +27,17 @@ export default class ShowTable extends React.Component {
     
       let mno = parseInt(this.state.mobileNo);
       console.log(mno);
-      Axios.get("http://localhost:5155/api/RegsiterAPI/GetUserByMobNo/" + mno).then(
+      Axios.get("http://localhost:5155/api/RegsiterAPI/GetUserByMobNo/" + mno, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+    }).then(
           r => {
               if (r) {
                   this.Register = r;
                   console.log(this.Register.data);
-                  sessionStorage.setItem("name", this.Register.data.name);
-                  sessionStorage.setItem("email", this.Register.data.email);
-                  // sessionStorage.setItem("mno", this.Register.data.mobileNo);
-                  sessionStorage.setItem("regtype", this.Register.data.regType);
+                  localStorage.setItem("name", this.Register.data.name);
+                  localStorage.setItem("email", this.Register.data.email);
+                  // localStorage.setItem("mno", this.Register.data.mobileNo);
+                  localStorage.setItem("regtype", this.Register.data.regType);
                   ReactDOM.render(<ShowTable />, document.getElementById('root'));
               }
               else

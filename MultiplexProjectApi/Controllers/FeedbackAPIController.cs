@@ -3,12 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 using MultiplexProject.Models;
 using MultiplexProject;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MultiplexProjectApi.Controllers
 {
     [Route("api/FeedbackAPI")]
     [EnableCors("MyPolicy")]
     [ApiController]
+    [Authorize]
+
     public class FeedbackAPIController : ControllerBase
     {
         readonly CodeFirstMultiplex db = null;

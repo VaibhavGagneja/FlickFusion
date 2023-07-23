@@ -4,11 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 using MultiplexProject.Models;
 using MultiplexProject;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
+
 namespace MultiplexProjectApi.Controllers
 {
     [Route("api/SeatMatrixAPI")]
     [EnableCors("MyPolicy")]
     [ApiController]
+    [Authorize]
+
     public class SeatMatrixAPIController : ControllerBase
     {
 

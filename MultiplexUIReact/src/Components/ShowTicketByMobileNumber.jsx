@@ -23,21 +23,23 @@ export default class ShowTicket extends React.Component {
         event.preventDefault();
         let mno = parseInt(this.state.mobileNo);
         console.log(mno);
-        Axios.get("http://localhost:5155/api/TicketAPI/GetTicketById/" + mno).then(
+        Axios.get("http://localhost:5155/api/TicketAPI/GetTicketById/" + mno, {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(
             r => {
                 if (r) {
                     this.Ticket = r;
                     console.log(r);
-                    sessionStorage.setItem("TicketId", this.Ticket.data.ticketId);
-                    sessionStorage.setItem("CreatedAt", this.Ticket.data.movietiming);
-                    // sessionStorage.setItem("name",this.Register.data.name);
-                    sessionStorage.setItem("Quantity", this.Ticket.data.quantity);
-                    sessionStorage.setItem("TicketType", this.Ticket.data.ticketType);
-                    sessionStorage.setItem("ScreenId", this.Ticket.data.screenId);
-                    sessionStorage.setItem("MovieId", this.Ticket.data.movieId);
-                    sessionStorage.setItem("mno", this.Ticket.data.mobileNo);
-                    // sessionStorage.setItem("MovieDuration",this.Register.data.MovieDuration);
-                    //sessionStorage.setItem("Price",this.Register.data.Price);
+                    localStorage.setItem("TicketId", this.Ticket.data.ticketId);
+                    localStorage.setItem("CreatedAt", this.Ticket.data.movietiming);
+                    // localStorage.setItem("name",this.Register.data.name);
+                    localStorage.setItem("Quantity", this.Ticket.data.quantity);
+                    localStorage.setItem("TicketType", this.Ticket.data.ticketType);
+                    localStorage.setItem("ScreenId", this.Ticket.data.screenId);
+                    localStorage.setItem("MovieId", this.Ticket.data.movieId);
+                    localStorage.setItem("mno", this.Ticket.data.mobileNo);
+                    // localStorage.setItem("MovieDuration",this.Register.data.MovieDuration);
+                    //localStorage.setItem("Price",this.Register.data.Price);
                     ReactDOM.render(<ShowTableTicket />, document.getElementById('root'));
                 }
                 else

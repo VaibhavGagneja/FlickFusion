@@ -23,17 +23,24 @@ services.AddScoped<IScreen, ScreenDAL>();
 services.AddScoped<ITicket, TicketDAL>();
 services.AddScoped<ISeatMatrix, SeatMatrixDAL>();
 
-services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
 {
     options.RequireHttpsMetadata = false;
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters()
     {
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        ValidateLifetime = false,
+        ValidateIssuerSigningKey = true
     };
 });
 
@@ -60,7 +67,8 @@ services.AddSwaggerGen(c =>
     };
     c.AddSecurityRequirement(securityRequirement);
 });
-
+services.AddAuthorization();
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).AddEnvironmentVariables();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -78,5 +86,9 @@ app.UseRouting();
 app.UseCors("MyPolicy");
 app.UseAuthentication();
 app.UseAuthorization();
+
+IConfiguration configuration = app.Configuration;
+IWebHostEnvironment environment = app.Environment;
+app.MapControllers();
 
 app.Run();

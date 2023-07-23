@@ -68,7 +68,9 @@ class AddScreen extends React.Component {
             Ticket: []
         };
         console.log(screen);
-        Axios.post("http://localhost:5155/api/ScreenAPI/AddScreen", screen).then(
+        Axios.post("http://localhost:5155/api/ScreenAPI/AddScreen", screen, {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(
             r => {
                 if (r) {
                     alert("New screen Added");

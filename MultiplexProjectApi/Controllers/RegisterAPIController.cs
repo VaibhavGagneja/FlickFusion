@@ -10,6 +10,7 @@ namespace MultiplexProjectApi.Controllers
     [Route("api/RegisterAPI")]
     [EnableCors("MyPolicy")]
     [ApiController]
+    [Authorize]
     public class RegisterAPIController : ControllerBase
     {
         readonly CodeFirstMultiplex db = null;
@@ -21,7 +22,6 @@ namespace MultiplexProjectApi.Controllers
             this.db = db;
             this.cust = cust;
         }
-        [Authorize]
         [HttpPost]
         [Consumes("application/json")]
         [Route("/api/RegisterAPI/InsertUser")]

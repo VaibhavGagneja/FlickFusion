@@ -4,13 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 using MultiplexProject.Models;
 using MultiplexProject;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MultiplexProjectApi.Controllers
 {
     [Route("api/MovieAPI")]
     [EnableCors("MyPolicy")]
     [ApiController]
-
+    [Authorize]
     public class MovieAPIController : ControllerBase
     {
         readonly CodeFirstMultiplex db = null;

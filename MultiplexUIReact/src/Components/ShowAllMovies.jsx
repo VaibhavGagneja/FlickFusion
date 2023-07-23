@@ -15,7 +15,9 @@ export default class ShowAllMovie extends React.Component
     }
     componentDidMount() //when the component is mounted this code will execute
     {
-        Axios.get("http://localhost:5155/api/MovieAPI/ShowAllMovies").then(r=>{
+        Axios.get("http://localhost:5155/api/MovieAPI/ShowAllMovies", {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(r=>{
             //console.log(r.data);
             this.setState({Movie:r.data});
         })

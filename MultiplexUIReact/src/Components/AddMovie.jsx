@@ -88,7 +88,9 @@ class AddMovie extends React.Component {
             Screen: []
         };
         console.log(movie);
-        Axios.post("http://localhost:5155/api/MovieAPI/AddMovie", movie).then(
+        Axios.post("http://localhost:5155/api/MovieAPI/AddMovie", movie, {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(
             r => {
                 if (r) {
                     alert("New Movie Added");

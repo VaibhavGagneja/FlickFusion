@@ -68,7 +68,7 @@ const RegisterUserTab = () => {
                         .then((r) => {
                             if (r.data) {
                                 alert("New Customer Added");
-                                navigate("/signin"); // Navigate to the Sign In tab after successful registration
+                                navigate("/login"); // Navigate to the Sign In tab after successful registration
                             }
                         })
                         .catch((error) => {

@@ -24,14 +24,16 @@ export default class ChangePassword extends React.Component {
         alert(`${mobilenumber} ${oldpassword} ${newpassword}`)
         // console.log(mobilenumber)
         // event.preventDefault();http://localhost:5155/
-        sessionStorage.getItem("MobileNumber")
-        Axios.put("http://localhost:5155/api/RegisterAPI/ChangePassword/" + sessionStorage.getItem("MobileNumber") + "/" + oldpassword+"/"+newpassword).then(r => {
+        localStorage.getItem("MobileNumber")
+        Axios.put("http://localhost:5155/api/RegisterAPI/ChangePassword/" + localStorage.getItem("MobileNumber") + "/" + oldpassword+"/"+newpassword, {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(r => {
             console.log(r.data);
             if (r.data != '') {
                 this.type = r.data;
                 // console.log(typeof(r.data))
                 console.log(this.type);
-                // sessionStorage.setItem("MNO", this.type);
+                // localStorage.setItem("MNO", this.type);
                 // if (this.type == "Customer")
                 // ReactDOM.render(<DashBoardCustomer />, document.getElementById('root'));
                 // if (this.type == "Admin")

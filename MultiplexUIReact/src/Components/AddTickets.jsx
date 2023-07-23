@@ -13,7 +13,7 @@ class AddTicket extends React.Component {
             // multiplex_id: '',
             screen_id:'',
             movie_id:'',
-            mobno:sessionStorage.getItem("MobileNumber")
+            mobno:localStorage.getItem("MobileNumber")
         }
     }
     //var name=document.getElementsByName[0].value;
@@ -70,7 +70,9 @@ class AddTicket extends React.Component {
             MobileNo:parseInt(this.state.mobno)
         };
         console.log(ticket);
-        Axios.post("http://localhost:5155/api/TicketAPI/AddTicket", ticket).then(
+        Axios.post("http://localhost:5155/api/TicketAPI/AddTicket", ticket, {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(
             r => {
                
                 if (r) {

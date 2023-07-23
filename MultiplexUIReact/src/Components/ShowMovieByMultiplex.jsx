@@ -15,7 +15,9 @@ export default class ShowMovieByMultiplex extends React.Component {
     }
     componentDidMount() //when the component is mounted this code will execute
     {
-        Axios.get("http://localhost:5155/api/ScreenAPI/GetScreenByMuxId/" + sessionStorage.getItem("MultiplexId")).then(r => {
+        Axios.get("http://localhost:5155/api/ScreenAPI/GetScreenByMuxId/" + localStorage.getItem("MultiplexId"), {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then(r => {
             //console.log(r.data);
             this.setState({ Movie: r.data });
         })
@@ -30,8 +32,8 @@ export default class ShowMovieByMultiplex extends React.Component {
             if (rb[i].checked) {
                 mid = table.rows[i + 1].cells.item(0).innerHTML;
                 sid = table.rows[i + 1].cells.item(3).innerHTML;
-                sessionStorage.setItem("MovieId", mid)
-                sessionStorage.setItem("ScreenId", sid)
+                localStorage.setItem("MovieId", mid)
+                localStorage.setItem("ScreenId", sid)
                 alert("Movie ID :" + mid + "\n" + "Audi Number :" + sid)
             }
         }

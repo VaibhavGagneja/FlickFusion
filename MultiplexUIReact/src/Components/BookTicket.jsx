@@ -10,8 +10,8 @@ const BookTicket = () => {
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
     const [price, setPrice] = useState("");
-    const [screen_id] = useState(sessionStorage.getItem("ScreenId"));
-    const [movie_id] = useState(sessionStorage.getItem("MovieId"));
+    const [screen_id] = useState(localStorage.getItem("ScreenId"));
+    const [movie_id] = useState(localStorage.getItem("MovieId"));
     const [mobno] = useState(localStorage.getItem("MobileNumber"));
     const [totalPrice, setTotalPrice] = useState(0);
     
@@ -51,7 +51,9 @@ const BookTicket = () => {
         };
 
         console.log(ticket);
-        Axios.post("http://localhost:5155/api/TicketAPI/AddTicket", ticket).then((r) => {
+        Axios.post("http://localhost:5155/api/TicketAPI/AddTicket", ticket, {
+            headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` },
+        }).then((r) => {
             if (r) {
                 alert("New ticket Added");
             }

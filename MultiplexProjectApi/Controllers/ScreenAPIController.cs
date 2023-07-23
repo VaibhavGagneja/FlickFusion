@@ -3,12 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 using MultiplexProject.Models;
 using MultiplexProject;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MultiplexProjectApi.Controllers
 {
     [Route("api/ScreenAPI")]
     [EnableCors("MyPolicy")]
     [ApiController]
+    [Authorize]
+
     public class ScreenAPIController : ControllerBase
     {
 
